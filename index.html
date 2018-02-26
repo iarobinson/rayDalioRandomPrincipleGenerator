@@ -1,23 +1,33 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Silly Temp Program</title>
-  <script>
-    function init() {
-      var quote = document.getElementById('quote');
+  <head>
+    <meta charset="utf-8">
+    <title>Random Quote Generator for Ray Dalio's Principles</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="principles.js"></script>
+    <style>
+      .selector-for-some-widget {
+        box-sizing: content-box;
+      }
+    </style>
+    <script>
+      function init() {
+        var quote = document.getElementById('quote');
+        
+      }
       
-    }
-    
-    window.onload = init;
-  </script>
-</head>
+      function producePrinciple(quotes) {
+        var view = document.getElementById('randomQuote');
+        view.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+      }
+      window.onload = init;
+    </script>
+  </head>
 
-<body>
-  <h1>Random Principle from Ray Dalio</h1>
-  <h2 id="randomQuote"></h2>
-  <button onclick="producePrinciple()">generate</button>
-  </ul>
-
-</body>
+  <body>
+    <h1>Random Principle from Ray Dalio</h1>
+    <button onclick="producePrinciple(raysPrinciples)">generate</button>
+    <p id="randomQuote"></p>
+  </body>
 </html>
